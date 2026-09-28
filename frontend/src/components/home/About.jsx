@@ -10,9 +10,9 @@ const FEATURES = [
     desc: 'Instead of throwing a huge questionnaire at you, the conversation adapts to the information you provide.',
   },
   {
-    icon: '💬',
-    title: 'Natural conversation',
-    desc: 'Talk about your symptoms in normal language. You do not need to know medical terminology to start a conversation.',
+    icon: '🏥',
+    title: 'Personalised Nearby Suggestions',
+    desc: 'It automatically detects the system via conversation and suggest you nearby hospital and clinic according to that.',
   },
   {
     icon: '🔐',
