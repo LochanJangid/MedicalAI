@@ -98,7 +98,7 @@ export default function Footer() {
                 LinkedIn
               </a>
 
-              {/* Email */}
+              {/* Portfolio */}
               <a
                 href="https://lochan.vercel.app/"
                 target="_blank"
@@ -107,22 +107,34 @@ export default function Footer() {
               >
                 Portfolio
               </a>
-
             </div>
           </div>
         </div>
 
-        {/* Bottom */}
+        {/* Legal + Bottom */}
         <div className="mt-10 flex flex-col gap-4 border-t border-neutral-900 pt-6 text-xs text-neutral-600 sm:flex-row sm:items-center sm:justify-between">
 
           <p>
             © {new Date().getFullYear()} Lochan Jangid. All rights reserved.
           </p>
 
-          <p className="text-center sm:text-right">
-            MedicalAI is an independent experiment.
-          </p>
+          <div className="flex items-center justify-center gap-4 sm:justify-end">
+            <Link
+              to="/privacy"
+              className="transition hover:text-neutral-300"
+            >
+              Privacy Policy
+            </Link>
 
+            <span className="text-neutral-800">•</span>
+
+            <Link
+              to="/terms"
+              className="transition hover:text-neutral-300"
+            >
+              Terms of Service
+            </Link>
+          </div>
         </div>
 
         {/* Disclaimer */}
@@ -133,6 +145,16 @@ export default function Footer() {
             believe you are experiencing an emergency, contact local emergency
             services or a qualified healthcare professional.
           </p>
+        </div>
+
+        {/* Contact */}
+        <div className="mt-4 text-center">
+          <a
+            href="mailto:lochanjangidcoder@gmail.com"
+            className="text-[10px] text-neutral-700 transition hover:text-cyan-500"
+          >
+            lochanjangidcoder@gmail.com
+          </a>
         </div>
 
       </div>
