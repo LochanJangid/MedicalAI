@@ -1,0 +1,18 @@
+# secrets
+.env
+.env.*
+!.env.example
+
+# python
+venv/
+.venv/
+__pycache__/
+*.pyc
+
+# node
+node_modules/
+dist/
+
+# os / editor
+.DS_Store
+.vscode/apikey*.txt
