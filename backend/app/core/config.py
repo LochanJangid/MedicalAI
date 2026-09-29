@@ -7,8 +7,7 @@ class Settings(BaseSettings):
     database_url: str
     groq_api_key: str
     allowed_origins: str = (
-        "http://localhost:5173,"
-        "https://medical-ai-gules.vercel.app"
+        "http://localhost:5173,https://medical-ai-gules.vercel.app"
     )
 
     class Config:
