@@ -6,6 +6,8 @@ MedicalAI is a personal project exploring how far a lightweight AI assistant can
 
 **Live app:** [medical-ai-gules.vercel.app](https://medical-ai-gules.vercel.app/)
 
+**Case Study:** [work/medical-ai](https://lochan.vercel.app/work/medical-ai)
+
 > ⚠️ MedicalAI does not diagnose conditions or replace professional medical care. If something feels urgent, contact emergency services or a doctor directly.
 
 ---
