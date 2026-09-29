@@ -1,7 +1,7 @@
 import { useState, useCallback, useRef } from 'react'
 import { supabase } from '../lib/supabaseClient'
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000'
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8001'
 
 async function readError(res) {
   const body = await res.json().catch(() => ({}))

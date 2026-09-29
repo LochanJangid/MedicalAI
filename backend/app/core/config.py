@@ -6,7 +6,10 @@ class Settings(BaseSettings):
     supabase_url: str
     database_url: str
     groq_api_key: str
-    allowed_origins: str = "http://localhost:5173"
+    allowed_origins: str = (
+        "http://localhost:5173,"
+        "https://medical-ai-gules.vercel.app"
+    )
 
     class Config:
         env_file = ".env"
