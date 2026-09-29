@@ -8,20 +8,51 @@ const LANGUAGES = [
   { code: 'fr', label: 'French' },
 ]
 
-function ExpandableRow({ icon, label, value, children }) {
+function ExpandableRow({
+  icon,
+  label,
+  value,
+  children,
+}) {
   const [open, setOpen] = useState(false)
+
   return (
     <div>
       <button
         onClick={() => setOpen((o) => !o)}
-        className="w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-neutral-800"
+        className="
+          flex w-full items-center
+          justify-between
+          rounded-xl
+          px-3 py-2.5
+          text-sm
+          text-neutral-400
+          transition-all duration-200
+          hover:bg-white/[0.045]
+          hover:text-neutral-200
+        "
       >
-        <span className="flex items-center gap-2">
-          <span>{icon}</span>
+        <span className="flex items-center gap-2.5">
+          <span className="text-sm opacity-70">
+            {icon}
+          </span>
+
           <span>{label}</span>
         </span>
-        <span className="text-xs text-gray-400 dark:text-gray-500">{value}</span>
+
+        <span className="flex items-center gap-2 text-[10px] text-neutral-600">
+          {value}
+
+          <span
+            className={`transition-transform duration-200 ${
+              open ? 'rotate-180' : ''
+            }`}
+          >
+            ↓
+          </span>
+        </span>
       </button>
+
       {open && (
         <div className="ml-8 mb-1 flex flex-col gap-0.5">
           {children}
@@ -31,12 +62,34 @@ function ExpandableRow({ icon, label, value, children }) {
   )
 }
 
-function OptionButton({ active, onClick, children }) {
+function OptionButton({
+  active,
+  onClick,
+  children,
+}) {
   return (
     <button
       onClick={onClick}
-      className={`text-left px-3 py-1.5 rounded-md text-sm
-        ${active ? 'text-blue-600 dark:text-blue-400 font-medium' : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-neutral-800'}`}
+      className={`
+        rounded-lg
+        px-3 py-2
+        text-left
+        text-sm
+        transition-all duration-200
+        ${
+          active
+            ? `
+              bg-rose-200/[0.06]
+              text-rose-200
+              font-medium
+            `
+            : `
+              text-neutral-500
+              hover:bg-white/[0.035]
+              hover:text-neutral-300
+            `
+        }
+      `}
     >
       {children}
     </button>
@@ -54,53 +107,152 @@ export default function AccountMenu({
   onOpenFullSettings,
   onSignOut,
 }) {
-  const languageLabel = LANGUAGES.find((l) => l.code === settings.language)?.label || 'Default'
+  const languageLabel =
+    LANGUAGES.find(
+      (l) => l.code === settings.language
+    )?.label || 'Default'
 
   return (
-    <div className="absolute bottom-full left-0 mb-2 w-64 rounded-xl border border-gray-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 shadow-xl p-2 z-50">
-      <div className="px-3 py-2 mb-1 border-b border-gray-100 dark:border-neutral-800">
-        <div className="text-sm font-medium text-gray-900 dark:text-gray-100 truncate">
+    <div
+      className="
+        absolute
+        bottom-full
+        left-0
+        z-50
+        mb-2
+        w-64
+        overflow-hidden
+        rounded-2xl
+        border border-white/[0.08]
+        bg-[#141117]/95
+        p-2
+        shadow-2xl
+        shadow-black/40
+        backdrop-blur-2xl
+      "
+    >
+      {/* Account information */}
+      <div className="mb-1 border-b border-white/[0.06] px-3 py-3">
+        <div className="truncate text-sm font-medium text-white">
           {userEmail?.split('@')[0]}
         </div>
-        <div className="text-xs text-gray-400 dark:text-gray-500 truncate">{userEmail}</div>
+
+        <div className="mt-0.5 truncate text-xs text-neutral-600">
+          {userEmail}
+        </div>
       </div>
 
-      <div className="flex items-center justify-between px-3 py-2 rounded-lg text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-neutral-800">
-        <span className="flex items-center gap-2">
-          <span>🕶</span>
+      {/* Incognito */}
+      <div
+        className="
+          flex items-center
+          justify-between
+          rounded-xl
+          px-3 py-2.5
+          text-sm
+          text-neutral-400
+          transition-colors
+          hover:bg-white/[0.045]
+        "
+      >
+        <span className="flex items-center gap-2.5">
+          <span className="text-sm opacity-70">
+            🕶
+          </span>
+
           <span>Incognito</span>
         </span>
-        <ToggleSwitch checked={incognito} onChange={onToggleIncognito} />
+
+        <ToggleSwitch
+          checked={incognito}
+          onChange={onToggleIncognito}
+        />
       </div>
 
+      {/* Settings */}
       <button
         onClick={onOpenFullSettings}
-        className="w-full flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-neutral-800"
+        className="
+          flex w-full items-center gap-2.5
+          rounded-xl
+          px-3 py-2.5
+          text-sm
+          text-neutral-400
+          transition-all duration-200
+          hover:bg-white/[0.045]
+          hover:text-neutral-200
+        "
       >
-        <span>⚙</span>
+        <span className="text-sm opacity-70">
+          ⚙
+        </span>
+
         <span>All settings</span>
       </button>
 
-      <ExpandableRow icon="🎨" label="Appearance" value={theme === 'dark' ? 'Dark' : 'Light'}>
-        <OptionButton active={theme === 'light'} onClick={() => onSetTheme('light')}>Light</OptionButton>
-        <OptionButton active={theme === 'dark'} onClick={() => onSetTheme('dark')}>Dark</OptionButton>
+      {/* Appearance */}
+      <ExpandableRow
+        icon="🎨"
+        label="Appearance"
+        value={theme === 'dark' ? 'Dark' : 'Light'}
+      >
+        <OptionButton
+          active={theme === 'light'}
+          onClick={() => onSetTheme('light')}
+        >
+          Light
+        </OptionButton>
+
+        <OptionButton
+          active={theme === 'dark'}
+          onClick={() => onSetTheme('dark')}
+        >
+          Dark
+        </OptionButton>
       </ExpandableRow>
 
-      <ExpandableRow icon="🌐" label="Language" value={languageLabel}>
-        {LANGUAGES.map((l) => (
-          <OptionButton key={l.code} active={settings.language === l.code} onClick={() => onSetLanguage(l.code)}>
-            {l.label}
+      {/* Language */}
+      <ExpandableRow
+        icon="🌐"
+        label="Language"
+        value={languageLabel}
+      >
+        {LANGUAGES.map((language) => (
+          <OptionButton
+            key={language.code}
+            active={
+              settings.language === language.code
+            }
+            onClick={() =>
+              onSetLanguage(language.code)
+            }
+          >
+            {language.label}
           </OptionButton>
         ))}
       </ExpandableRow>
 
-      <div className="my-1 border-t border-gray-100 dark:border-neutral-800" />
+      {/* Divider */}
+      <div className="my-1 border-t border-white/[0.06]" />
 
+      {/* Sign out */}
       <button
         onClick={onSignOut}
-        className="w-full flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-red-500 hover:bg-red-50 dark:hover:bg-red-950/40"
+        className="
+          flex w-full items-center gap-2.5
+          rounded-xl
+          px-3 py-2.5
+          text-sm
+          text-red-300/80
+          transition-all duration-200
+          hover:bg-red-400/[0.07]
+          hover:text-red-300
+        "
       >
-        <span>↪</span>
+        <span className="text-sm opacity-80">
+          ↪
+        </span>
+
         <span>Sign out</span>
       </button>
     </div>

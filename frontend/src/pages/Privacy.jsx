@@ -1,79 +1,93 @@
-import React from "react";
+import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function Privacy() {
   return (
-    <main className="min-h-screen bg-[#05070a] text-zinc-200">
-      {/* Background glow */}
+    <main className="min-h-screen bg-[#0d0b10] text-neutral-200">
+      {/* Ambient background */}
       <div className="pointer-events-none fixed inset-0 overflow-hidden">
-        <div className="absolute left-1/2 top-0 h-[500px] w-[900px] -translate-x-1/2 rounded-full bg-cyan-500/[0.04] blur-3xl" />
-        <div className="absolute bottom-0 left-0 h-[400px] w-[500px] rounded-full bg-blue-500/[0.03] blur-3xl" />
+        <div className="absolute left-1/2 top-[-280px] h-[650px] w-[950px] -translate-x-1/2 rounded-full bg-rose-400/[0.07] blur-3xl" />
+        <div className="absolute bottom-[-280px] left-[-160px] h-[550px] w-[550px] rounded-full bg-violet-500/[0.07] blur-3xl" />
+        <div className="absolute right-[-180px] top-1/3 h-[450px] w-[450px] rounded-full bg-rose-300/[0.035] blur-3xl" />
       </div>
 
-      {/* Lab grid */}
-      <div className="pointer-events-none fixed inset-0 opacity-[0.025] [background-image:linear-gradient(to_right,#fff_1px,transparent_1px),linear-gradient(to_bottom,#fff_1px,transparent_1px)] [background-size:48px_48px]" />
-
-      <div className="relative mx-auto max-w-5xl px-6 py-16 sm:px-8 lg:py-24">
-
+      <div className="relative mx-auto max-w-6xl px-5 py-10 sm:px-8 lg:py-16">
         {/* Header */}
-        <header className="mb-16 border-b border-zinc-800/80 pb-10">
-          <div className="mb-6 flex items-center gap-3">
-            <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-cyan-500/20 bg-cyan-500/10">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                className="h-5 w-5 text-cyan-400"
-                stroke="currentColor"
-                strokeWidth="1.5"
-              >
-                <path d="M9 3v6.5L4.5 17A3 3 0 0 0 7.1 21h9.8a3 3 0 0 0 2.6-4L15 9.5V3" />
-                <path d="M8 3h8" />
-                <path d="M7 14h10" />
-              </svg>
-            </div>
+        <header className="mb-14">
+          <div className="mb-8 flex items-center justify-between gap-4">
+            <Link
+              to="/"
+              className="group flex items-center gap-3"
+            >
+              <div className="relative flex h-10 w-10 items-center justify-center rounded-xl border border-white/[0.08] bg-white/[0.04] text-lg shadow-lg shadow-rose-500/[0.04] transition-all duration-300 group-hover:-rotate-2 group-hover:border-rose-200/20">
+                🧬
+                <span className="absolute -right-0.5 -top-0.5 h-1.5 w-1.5 rounded-full bg-rose-300/80" />
+              </div>
 
-            <span className="font-mono text-xs uppercase tracking-[0.25em] text-cyan-400">
-              MedicalAI / Legal
-            </span>
+              <div>
+                <div className="text-sm font-semibold tracking-tight text-white">
+                  MedicalAI
+                </div>
+                <div className="text-[9px] text-neutral-600">
+                  a gentler way to understand
+                </div>
+              </div>
+            </Link>
+
+            <Link
+              to="/"
+              className="rounded-xl border border-white/[0.07] bg-white/[0.025] px-4 py-2.5 text-xs font-medium text-neutral-400 backdrop-blur-xl transition-all duration-300 hover:border-white/[0.12] hover:bg-white/[0.05] hover:text-white"
+            >
+              ← Home
+            </Link>
           </div>
 
-          <h1 className="text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-            Privacy Policy
-          </h1>
+          <div className="rounded-[28px] border border-white/[0.07] bg-white/[0.025] p-6 shadow-2xl shadow-black/20 backdrop-blur-2xl sm:p-9">
+            <div className="mb-5 flex items-center gap-2">
+              <span className="h-1.5 w-1.5 rounded-full bg-rose-300/80" />
+              <span className="text-[10px] uppercase tracking-[0.22em] text-neutral-600">
+                MedicalAI / Legal
+              </span>
+            </div>
 
-          <p className="mt-5 max-w-2xl text-base leading-7 text-zinc-400">
-            How MedicalAI collects, uses, protects, and handles information
-            provided by users.
-          </p>
+            <h1 className="text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+              Privacy Policy
+            </h1>
 
-          <div className="mt-6 flex items-center gap-2 font-mono text-xs text-zinc-600">
-            <span className="h-1.5 w-1.5 rounded-full bg-cyan-400" />
-            LAST UPDATED: SEPTEMBER 28, 2026
+            <p className="mt-5 max-w-2xl text-sm leading-7 text-neutral-500 sm:text-base">
+              How MedicalAI collects, uses, protects, and handles information
+              provided by users.
+            </p>
+
+            <div className="mt-6 flex items-center gap-2 text-[10px] uppercase tracking-[0.16em] text-neutral-600">
+              <span className="text-rose-300/70">♡</span>
+              Last updated: September 28, 2026
+            </div>
           </div>
         </header>
 
         {/* Content */}
-        <div className="grid gap-12 lg:grid-cols-[180px_1fr]">
-
+        <div className="grid gap-10 lg:grid-cols-[180px_1fr]">
           {/* Sidebar */}
           <aside className="hidden lg:block">
-            <div className="sticky top-10">
-              <p className="mb-4 font-mono text-[10px] uppercase tracking-[0.2em] text-zinc-600">
+            <div className="sticky top-8">
+              <p className="mb-4 text-[10px] uppercase tracking-[0.2em] text-neutral-600">
                 Contents
               </p>
 
-              <nav className="space-y-2 border-l border-zinc-800 pl-4 text-xs">
+              <nav className="space-y-2 border-l border-white/[0.07] pl-4 text-xs">
                 {[
-                  ["information", "Information"],
-                  ["usage", "How we use it"],
-                  ["ai", "AI processing"],
-                  ["sharing", "Data sharing"],
-                  ["security", "Security"],
-                  ["rights", "Your rights"],
+                  ['information', 'Information'],
+                  ['usage', 'How we use it'],
+                  ['ai', 'AI processing'],
+                  ['sharing', 'Data sharing'],
+                  ['security', 'Security'],
+                  ['rights', 'Your rights'],
                 ].map(([id, label]) => (
                   <a
                     key={id}
                     href={`#${id}`}
-                    className="block text-zinc-500 transition hover:text-cyan-400"
+                    className="block text-neutral-600 transition hover:text-rose-300"
                   >
                     {label}
                   </a>
@@ -84,16 +98,15 @@ export default function Privacy() {
 
           {/* Document */}
           <article className="max-w-3xl space-y-14">
-
             {/* Introduction */}
             <section>
-              <p className="text-lg leading-8 text-zinc-300">
+              <p className="text-lg leading-8 text-neutral-300">
                 MedicalAI ("MedicalAI", "we", "us", or "our") is an AI-powered
                 health information assistant designed to help users organize
                 and understand information about their symptoms.
               </p>
 
-              <p className="mt-5 leading-7 text-zinc-400">
+              <p className="mt-5 leading-7 text-neutral-500">
                 This Privacy Policy explains what information MedicalAI may
                 collect, how it is used, how it is protected, and what choices
                 you have regarding your information.
@@ -104,7 +117,7 @@ export default function Privacy() {
             <section id="information">
               <SectionHeader number="01" title="Information We Collect" />
 
-              <p className="leading-7 text-zinc-400">
+              <p className="leading-7 text-neutral-500">
                 Depending on how you use MedicalAI, we may collect the
                 following categories of information.
               </p>
@@ -145,19 +158,19 @@ export default function Privacy() {
             <section id="usage">
               <SectionHeader number="02" title="How We Use Information" />
 
-              <p className="leading-7 text-zinc-400">
+              <p className="leading-7 text-neutral-500">
                 Information we collect may be used to:
               </p>
 
               <BulletList
                 items={[
-                  "Provide and operate MedicalAI",
-                  "Understand the symptoms and information you provide",
-                  "Generate responses from the AI assistant",
-                  "Maintain and improve the service",
-                  "Detect and prevent abuse, fraud, and security problems",
-                  "Troubleshoot technical problems",
-                  "Communicate with you about your account or the service",
+                  'Provide and operate MedicalAI',
+                  'Understand the symptoms and information you provide',
+                  'Generate responses from the AI assistant',
+                  'Maintain and improve the service',
+                  'Detect and prevent abuse, fraud, and security problems',
+                  'Troubleshoot technical problems',
+                  'Communicate with you about your account or the service',
                 ]}
               />
 
@@ -171,30 +184,30 @@ export default function Privacy() {
             <section id="ai">
               <SectionHeader number="03" title="AI & Health Information" />
 
-              <p className="leading-7 text-zinc-400">
+              <p className="leading-7 text-neutral-500">
                 MedicalAI uses artificial intelligence to process information
                 provided by users. The AI assistant is designed to gather and
                 organize symptom information.
               </p>
 
-              <div className="mt-6 rounded-xl border border-amber-500/20 bg-amber-500/[0.04] p-5">
+              <div className="mt-6 rounded-2xl border border-amber-300/[0.12] bg-amber-300/[0.035] p-6">
                 <div className="flex gap-4">
-                  <div className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-md border border-amber-500/20 bg-amber-500/10">
-                    <span className="text-xs text-amber-400">!</span>
+                  <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border border-amber-300/[0.12] bg-amber-300/[0.05]">
+                    <span className="text-xs text-amber-300">!</span>
                   </div>
 
                   <div>
-                    <p className="font-medium text-amber-300">
+                    <p className="font-medium text-amber-200">
                       Medical disclaimer
                     </p>
 
-                    <p className="mt-2 text-sm leading-6 text-zinc-400">
+                    <p className="mt-2 text-sm leading-6 text-neutral-500">
                       MedicalAI is not a doctor, medical professional, or
                       emergency service. It does not provide a medical
                       diagnosis or prescribe treatment.
                     </p>
 
-                    <p className="mt-3 text-sm leading-6 text-zinc-400">
+                    <p className="mt-3 text-sm leading-6 text-neutral-500">
                       If you believe you are experiencing a medical emergency,
                       contact your local emergency service or seek immediate
                       medical attention.
@@ -208,26 +221,26 @@ export default function Privacy() {
             <section id="sharing">
               <SectionHeader number="04" title="How We Share Information" />
 
-              <p className="leading-7 text-zinc-400">
+              <p className="leading-7 text-neutral-500">
                 We do not sell your personal information.
               </p>
 
-              <p className="mt-5 leading-7 text-zinc-400">
+              <p className="mt-5 leading-7 text-neutral-500">
                 Information may be shared with service providers necessary to
                 operate MedicalAI, including:
               </p>
 
               <BulletList
                 items={[
-                  "Hosting providers",
-                  "Database providers",
-                  "Authentication providers",
-                  "AI or model providers",
-                  "Analytics and monitoring providers",
+                  'Hosting providers',
+                  'Database providers',
+                  'Authentication providers',
+                  'AI or model providers',
+                  'Analytics and monitoring providers',
                 ]}
               />
 
-              <p className="mt-5 leading-7 text-zinc-400">
+              <p className="mt-5 leading-7 text-neutral-500">
                 These providers may process information on our behalf and are
                 expected to handle information according to their applicable
                 agreements and security requirements.
@@ -238,13 +251,13 @@ export default function Privacy() {
             <section>
               <SectionHeader number="05" title="Data Retention" />
 
-              <p className="leading-7 text-zinc-400">
+              <p className="leading-7 text-neutral-500">
                 We retain information only for as long as reasonably necessary
                 to provide the service, maintain security, comply with legal
                 obligations, resolve disputes, and enforce our agreements.
               </p>
 
-              <p className="mt-5 leading-7 text-zinc-400">
+              <p className="mt-5 leading-7 text-neutral-500">
                 If you delete your account, we will take reasonable steps to
                 delete or de-identify associated information, subject to
                 information that we are legally required or permitted to
@@ -256,21 +269,21 @@ export default function Privacy() {
             <section id="security">
               <SectionHeader number="06" title="Data Security" />
 
-              <p className="leading-7 text-zinc-400">
+              <p className="leading-7 text-neutral-500">
                 We use reasonable technical and organizational measures
                 intended to protect information against unauthorized access,
                 loss, misuse, alteration, or disclosure.
               </p>
 
-              <p className="mt-5 leading-7 text-zinc-400">
+              <p className="mt-5 leading-7 text-neutral-500">
                 However, no internet service can guarantee absolute security.
               </p>
 
-              <div className="mt-6 flex items-center gap-3 rounded-lg border border-zinc-800 bg-zinc-900/40 px-4 py-3">
-                <div className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_10px_rgba(52,211,153,0.5)]" />
+              <div className="mt-6 flex items-center gap-3 rounded-2xl border border-white/[0.07] bg-white/[0.025] px-5 py-4 backdrop-blur-xl">
+                <div className="h-2 w-2 rounded-full bg-emerald-300/80" />
 
-                <span className="font-mono text-xs text-zinc-500">
-                  SECURITY STATUS / REASONABLE SAFEGUARDS
+                <span className="text-[10px] uppercase tracking-[0.14em] text-neutral-600">
+                  Security status / reasonable safeguards
                 </span>
               </div>
             </section>
@@ -279,22 +292,22 @@ export default function Privacy() {
             <section id="rights">
               <SectionHeader number="07" title="Your Choices & Rights" />
 
-              <p className="leading-7 text-zinc-400">
+              <p className="leading-7 text-neutral-500">
                 Depending on where you live, you may have rights regarding
                 your personal information, including the right to:
               </p>
 
               <BulletList
                 items={[
-                  "Request access to information we hold about you",
-                  "Request correction of inaccurate information",
-                  "Request deletion of your information",
-                  "Request restrictions on certain processing",
-                  "Withdraw consent where processing is based on consent",
+                  'Request access to information we hold about you',
+                  'Request correction of inaccurate information',
+                  'Request deletion of your information',
+                  'Request restrictions on certain processing',
+                  'Withdraw consent where processing is based on consent',
                 ]}
               />
 
-              <p className="mt-5 leading-7 text-zinc-400">
+              <p className="mt-5 leading-7 text-neutral-500">
                 To make a privacy-related request, contact us using the email
                 address below.
               </p>
@@ -304,7 +317,7 @@ export default function Privacy() {
             <section>
               <SectionHeader number="08" title="Children's Privacy" />
 
-              <p className="leading-7 text-zinc-400">
+              <p className="leading-7 text-neutral-500">
                 MedicalAI is not intended for children unless explicitly
                 stated otherwise. We do not knowingly collect personal
                 information from children in violation of applicable law.
@@ -315,13 +328,13 @@ export default function Privacy() {
             <section>
               <SectionHeader number="09" title="Third-Party Services" />
 
-              <p className="leading-7 text-zinc-400">
+              <p className="leading-7 text-neutral-500">
                 MedicalAI may rely on third-party services to provide
                 functionality such as authentication, hosting, databases,
                 AI processing, analytics, and monitoring.
               </p>
 
-              <p className="mt-5 leading-7 text-zinc-400">
+              <p className="mt-5 leading-7 text-neutral-500">
                 Those services may process information according to their own
                 privacy policies and terms.
               </p>
@@ -331,7 +344,7 @@ export default function Privacy() {
             <section>
               <SectionHeader number="10" title="International Data Transfers" />
 
-              <p className="leading-7 text-zinc-400">
+              <p className="leading-7 text-neutral-500">
                 Depending on the services used to operate MedicalAI, your
                 information may be processed or stored in countries other than
                 the country where you live.
@@ -342,7 +355,7 @@ export default function Privacy() {
             <section>
               <SectionHeader number="11" title="Changes to This Policy" />
 
-              <p className="leading-7 text-zinc-400">
+              <p className="leading-7 text-neutral-500">
                 We may update this Privacy Policy from time to time. When we
                 make changes, we will update the "Last updated" date at the top
                 of this page.
@@ -353,59 +366,67 @@ export default function Privacy() {
             <section>
               <SectionHeader number="12" title="Contact Us" />
 
-              <p className="leading-7 text-zinc-400">
+              <p className="leading-7 text-neutral-500">
                 If you have questions, concerns, or requests regarding this
                 Privacy Policy or your personal information, contact us at:
               </p>
 
-              <div className="mt-6 rounded-xl border border-zinc-800 bg-[#080b0f] p-6">
-                <div className="font-mono text-xs uppercase tracking-wider text-zinc-600">
+              <div className="mt-6 rounded-2xl border border-white/[0.07] bg-white/[0.025] p-6 backdrop-blur-xl">
+                <div className="text-[10px] uppercase tracking-[0.16em] text-neutral-600">
                   Privacy Contact
                 </div>
 
                 <a
                   href="mailto:lochanjangidcoder@gmail.com"
-                  className="mt-2 block text-sm text-cyan-400 transition hover:text-cyan-300"
+                  className="mt-2 block text-sm text-rose-300 transition hover:text-rose-200"
                 >
                   lochanjangidcoder@gmail.com
                 </a>
 
-                <div className="mt-5 h-px bg-zinc-800" />
+                <div className="mt-5 h-px bg-white/[0.06]" />
 
-                <div className="mt-5 text-sm text-zinc-500">
+                <div className="mt-5 text-sm text-neutral-500">
                   MedicalAI
                 </div>
               </div>
             </section>
 
             {/* Final disclaimer */}
-            <section className="border-t border-zinc-800 pt-10">
-              <div className="rounded-2xl border border-cyan-500/10 bg-cyan-500/[0.025] p-6 sm:p-8">
-                <h2 className="font-medium text-white">
-                  Medical information disclaimer
-                </h2>
+            <section className="border-t border-white/[0.07] pt-10">
+              <div className="rounded-[24px] border border-rose-200/[0.08] bg-rose-200/[0.025] p-6 sm:p-8">
+                <div className="flex gap-4">
+                  <span className="mt-0.5 text-lg text-rose-300/80">
+                    ♡
+                  </span>
 
-                <p className="mt-3 text-sm leading-6 text-zinc-500">
-                  MedicalAI is an informational technology tool and is not a
-                  substitute for a qualified healthcare professional. Do not
-                  rely on MedicalAI for diagnosis, emergency medical decisions,
-                  or treatment recommendations.
-                </p>
+                  <div>
+                    <h2 className="font-medium text-white">
+                      Medical information disclaimer
+                    </h2>
+
+                    <p className="mt-3 text-sm leading-6 text-neutral-500">
+                      MedicalAI is an informational technology tool and is not
+                      a substitute for a qualified healthcare professional. Do
+                      not rely on MedicalAI for diagnosis, emergency medical
+                      decisions, or treatment recommendations.
+                    </p>
+                  </div>
+                </div>
               </div>
             </section>
           </article>
         </div>
 
         {/* Footer */}
-        <footer className="mt-20 border-t border-zinc-900 pt-8">
-          <div className="flex flex-col gap-3 font-mono text-[10px] uppercase tracking-wider text-zinc-700 sm:flex-row sm:items-center sm:justify-between">
+        <footer className="mt-20 border-t border-white/[0.06] pt-8">
+          <div className="flex flex-col gap-3 text-[10px] uppercase tracking-[0.14em] text-neutral-700 sm:flex-row sm:items-center sm:justify-between">
             <span>MedicalAI / Privacy</span>
             <span>© 2026 MedicalAI</span>
           </div>
         </footer>
       </div>
     </main>
-  );
+  )
 }
 
 /* ----------------------------- */
@@ -415,7 +436,7 @@ export default function Privacy() {
 function SectionHeader({ number, title }) {
   return (
     <div className="mb-6 flex items-baseline gap-4">
-      <span className="font-mono text-[10px] tracking-widest text-cyan-500/70">
+      <span className="text-[10px] tracking-widest text-rose-300/50">
         {number}
       </span>
 
@@ -423,41 +444,44 @@ function SectionHeader({ number, title }) {
         {title}
       </h2>
     </div>
-  );
+  )
 }
 
 function InfoBlock({ title, children }) {
   return (
-    <div className="mt-6 rounded-xl border border-zinc-800/80 bg-zinc-900/20 p-5">
-      <h3 className="mb-3 text-sm font-medium text-zinc-200">{title}</h3>
+    <div className="mt-6 rounded-2xl border border-white/[0.07] bg-white/[0.025] p-5 backdrop-blur-xl">
+      <h3 className="mb-3 text-sm font-medium text-neutral-200">
+        {title}
+      </h3>
 
-      <div className="text-sm leading-7 text-zinc-500 [&_li]:relative [&_li]:pl-5 [&_li]:before:absolute [&_li]:before:left-0 [&_li]:before:top-[0.8em] [&_li]:before:h-1 [&_li]:before:w-1 [&_li]:before:rounded-full [&_li]:before:bg-cyan-500/50">
+      <div className="text-sm leading-7 text-neutral-500 [&_li]:relative [&_li]:pl-5 [&_li]:before:absolute [&_li]:before:left-0 [&_li]:before:top-[0.8em] [&_li]:before:h-1 [&_li]:before:w-1 [&_li]:before:rounded-full [&_li]:before:bg-rose-300/50">
         {children}
       </div>
     </div>
-  );
+  )
 }
 
 function BulletList({ items }) {
   return (
-    <ul className="mt-5 space-y-3 text-sm leading-6 text-zinc-500">
+    <ul className="mt-5 space-y-3 text-sm leading-6 text-neutral-500">
       {items.map((item) => (
         <li key={item} className="flex gap-3">
-          <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-cyan-500/60" />
+          <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-rose-300/60" />
           <span>{item}</span>
         </li>
       ))}
     </ul>
-  );
+  )
 }
 
 function Notice({ children }) {
   return (
-    <div className="mt-6 rounded-lg border border-cyan-500/10 bg-cyan-500/[0.025] px-5 py-4 text-sm leading-6 text-zinc-400">
-      <span className="mr-2 font-mono text-[10px] uppercase tracking-wider text-cyan-500">
+    <div className="mt-6 rounded-2xl border border-rose-200/[0.07] bg-rose-200/[0.025] px-5 py-4 text-sm leading-6 text-neutral-500">
+      <span className="mr-2 text-[10px] uppercase tracking-wider text-rose-300/70">
         Note
       </span>
+
       {children}
     </div>
-  );
+  )
 }
